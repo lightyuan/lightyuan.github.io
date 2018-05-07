@@ -82,14 +82,14 @@
 <meta name="description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What is RF-Kill?">
+<meta property="og:title" content="What is RF-Kill ?">
 <meta property="og:url" content="http://yoursite.com/2018/05/07/What-is-RF-Kill/index.html">
 <meta property="og:site_name" content="此心光明,亦复何言">
 <meta property="og:description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T04:26:47.175Z">
+<meta property="og:updated_time" content="2018-05-07T04:30:57.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What is RF-Kill?">
+<meta name="twitter:title" content="What is RF-Kill ?">
 <meta name="twitter:description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>What is RF-Kill? | 此心光明,亦复何言</title>
+  <title>What is RF-Kill ? | 此心光明,亦复何言</title>
   
 
 
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">What is RF-Kill?</h1>
+          <h1 class="post-title" itemprop="name headline">What is RF-Kill ?</h1>
         
 
         <div class="post-meta">
@@ -309,13 +309,13 @@
 <p><em>RFKill</em> 接口就是 <em>/dev/rfkill</em>, 它包含系统中所有无线发射装置的当前状态. 每个设备都拥有它的当前<em>RFKill</em>状态, 该状态已注册到<em>sysfs</em>. 而且, <em>RFKill</em> 为每个RFKill-enabled设备的状态改变产生文件.</p>
 <h2 id="命令行工具-rfkill"><a href="#命令行工具-rfkill" class="headerlink" title="命令行工具 rfkill"></a>命令行工具 rfkill</h2><p><strong>rfkill</strong>是一个命令行工具, 通过它你可以查询并改变系统中RFKill-enabled设备.获得该设备需要安装rfkill包.</p>
 <p>获取无线设备表:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill list</span><br></pre></td></tr></table></figure>
+<p><code>$ rfkill listi</code></p>
 <p>限制序号为[number]的设备:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill block [number]</span><br></pre></td></tr></table></figure>
+<p><code>$ rfkill block [number]</code></p>
 <p>限制特定类别的设备, 如 wifi, blootooth等:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill block wifi</span><br></pre></td></tr></table></figure>
+<p><code>$ rfkill block wifi</code></p>
 <p>限制所有设备:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill block all</span><br></pre></td></tr></table></figure>
+<p><code>$ rfkill block all</code></p>
 <p>与以上限制相应的有解封 unblock：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill unblock [number]</span><br><span class="line">$ rfkill unblock wifi</span><br><span class="line">$ rfkill unblock all</span><br></pre></td></tr></table></figure>
 <p>毫无类外, rfkill也提供了帮助文档:</p>

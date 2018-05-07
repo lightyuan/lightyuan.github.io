@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What is RF-Kill?">
 <meta property="og:url" content="http://yoursite.com/2018/05/07/What-is-RF-Kill/index.html">
 <meta property="og:site_name" content="此心光明,亦复何言">
+<meta property="og:description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T03:31:12.409Z">
+<meta property="og:updated_time" content="2018-05-07T04:26:47.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What is RF-Kill?">
+<meta name="twitter:description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
 
 
 
@@ -297,7 +300,27 @@
       
 
       
-        
+        <p>这是我从外国网站上看到的,感觉不错,就翻译过来了.</p>
+<p>原网址：<a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/power_management_guide/rfkill" target="_blank" rel="noopener">Reahat Customer Portal</a>.</p>
+<a id="more"></a>
+<h2 id="RFKill-介绍"><a href="#RFKill-介绍" class="headerlink" title="RFKill 介绍"></a><em>RFKill</em> 介绍</h2><p>许多电脑都拥有无线发射设备，包括WI-FI, Bluetooth, 和3G设备.当这些设备不是用的时候,依然消耗功率.</p>
+<p><em>RFKill</em>是<em>Linux</em>内核内的一个子系统, 它提供一种接口, 通过该接口计算机系统中的无线发射设备可以被询问, 被激活, 或者被无效. 当发射装置被无效时, 它可以处于被软件再次激活的状态(a soft block), 或者处于无法再次被激活的状态(a hard block).</p>
+<p>RFKill core 为该子系统提供了API. 内核驱动已经设计成支持<em>RFKill</em>使用该API向内核登记, 还包含一些方法如: 启动设备, 关闭设备. 除此以外, RFKill core 还提过用户应用可以理解的通告, 以及一些方法, 通过该方法用户应用可以查询发射装置的状态.</p>
+<p><em>RFKill</em> 接口就是 <em>/dev/rfkill</em>, 它包含系统中所有无线发射装置的当前状态. 每个设备都拥有它的当前<em>RFKill</em>状态, 该状态已注册到<em>sysfs</em>. 而且, <em>RFKill</em> 为每个RFKill-enabled设备的状态改变产生文件.</p>
+<h2 id="命令行工具-rfkill"><a href="#命令行工具-rfkill" class="headerlink" title="命令行工具 rfkill"></a>命令行工具 rfkill</h2><p><strong>rfkill</strong>是一个命令行工具, 通过它你可以查询并改变系统中RFKill-enabled设备.获得该设备需要安装rfkill包.</p>
+<p>获取无线设备表:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill list</span><br></pre></td></tr></table></figure>
+<p>限制序号为[number]的设备:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill block [number]</span><br></pre></td></tr></table></figure>
+<p>限制特定类别的设备, 如 wifi, blootooth等:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill block wifi</span><br></pre></td></tr></table></figure>
+<p>限制所有设备:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill block all</span><br></pre></td></tr></table></figure>
+<p>与以上限制相应的有解封 unblock：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill unblock [number]</span><br><span class="line">$ rfkill unblock wifi</span><br><span class="line">$ rfkill unblock all</span><br></pre></td></tr></table></figure>
+<p>毫无类外, rfkill也提供了帮助文档:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ man rfkill</span><br><span class="line">$ rfkill --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -387,8 +410,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +471,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RFKill-介绍"><span class="nav-number">1.</span> <span class="nav-text">RFKill 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行工具-rfkill"><span class="nav-number">2.</span> <span class="nav-text">命令行工具 rfkill</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="encrypt,">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="encrypt">
-<meta name="keywords" content="encrypt">
+<meta name="description" content="原文在这 操纵符是可以在 iostream 中插入或提取以起到特殊作用的值。">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Encrypt">
-<meta property="og:url" content="http://yoursite.com/2018/05/07/Encrypt/index.html">
+<meta property="og:title" content="c++: 操纵符">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/c-操纵符/index.html">
 <meta property="og:site_name" content="此心光明,亦复何言">
-<meta property="og:description" content="encrypt">
+<meta property="og:description" content="原文在这 操纵符是可以在 iostream 中插入或提取以起到特殊作用的值。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-07T02:30:11.194Z">
+<meta property="og:updated_time" content="2018-08-10T02:35:29.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Encrypt">
-<meta name="twitter:description" content="encrypt">
+<meta name="twitter:title" content="c++: 操纵符">
+<meta name="twitter:description" content="原文在这 操纵符是可以在 iostream 中插入或提取以起到特殊作用的值。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/07/Encrypt/">
+  <link rel="canonical" href="http://yoursite.com/2018/08/10/c-操纵符/">
 
 
 
 
 
-  <title>Encrypt | 此心光明,亦复何言</title>
+  <title>c++: 操纵符 | 此心光明,亦复何言</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/Encrypt/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/c-操纵符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Light Yuan">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Encrypt</h1>
+          <h1 class="post-title" itemprop="name headline">c++: 操纵符</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T18:34:07+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T10:27:45+08:00">
+                2018-08-10
               </time>
             
 
@@ -296,10 +296,6 @@
           
 
           
-              <div class="post-description">
-                  encrypt
-              </div>
-          
 
         </div>
       </header>
@@ -314,20 +310,52 @@
       
 
       
-        <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="你猜">
-    <label for="pass">你猜</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-U2FsdGVkX19me8NHPz86u/UYkmMoVHjwht1mirUIDUMhVGfK1gWfGciXJ3fEhJaz6hlXyPQF532z+NgdnLKi3BuzCZkL2KcYln4GFBW2oQzzNd1kVBeUNyZe9R1iJLkdD6GxOYC8fskgCQ6AGm1pbz1hGZ7YvxHAXcujPmS1J3uLqkIPNxDZuFofX2EBY+JG
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <p><a href="https://docs.oracle.com/cd/E19205-01/820-1214/bkall/index.html" target="_blank" rel="noopener">原文</a>在这</p>
+<p>操纵符是可以在 iostream 中插入或提取以起到特殊作用的值。</p>
+<a id="more"></a>
+<p>参数化操纵符是具有一个或多个参数的操纵符。</p>
+<p>因为操纵符是普通的标识符，因此会用完可能的名称，而 iostream 不会为每个可能的函数定义操纵符。本章的其他部分讨论了各种操纵符和成员函数。</p>
+<p>有 13 个预定义的操纵符，如表 14–2 中所列。使用该表时，要进行以下假设：</p>
+<ul>
+<li>i 的类型为 long。</li>
+<li>n 的类型为 int。</li>
+<li>c 的类型为 char。</li>
+<li>istr 是输入流。</li>
+<li>ostr 是输出流。</li>
+</ul>
+<p>表 14–2 iostream 的预定义操纵符</p>
+<table width="100%" cellpadding="10" cellspacing="0" border="2"><br><caption><br><b></b><br></caption><br><thead><br><tr><br><th scope="col" align="left" valign="top"><br><p>&nbsp;</p><br><br></th><th scope="col" align="left" valign="top"><br><p>预定义的操纵符&nbsp;</p><br><br></th><th scope="col" align="left" valign="top"><br><p>说明&nbsp;</p><br><br></th><br></tr><br><br></thead><br><tbody><br><tr><br><td align="left" valign="top"><br><p>1&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-649"></a>dec, istr &gt;&gt; dec</pre><br></td><br></tr><br></tbody></table>
+
+<p></p></td><td align="left" valign="top"><p></p>
+<p>进行基于 10 的整型转换。&nbsp;</p>
+
+<p></p></td><br></tr><p></p>
+<tr><br><td align="left" valign="top"><br><p>2&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-650"></a>endl</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>插入换行符 (<tt>‘\n’</tt>) 并调用 <tt>ostream::flush()</tt>。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>3&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-651"></a>ends</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>插入空 (0) 字符。这在处理 <tt>strstream</tt> 时很有用。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>4&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-652"></a>flush</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>调用 <tt>ostream::flush()</tt>。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>5&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-653"></a>hex、istr &gt;&gt; hex</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>进行基于 16 的整型转换。&nbsp;</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>6&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-654"></a>oct、istr &gt;&gt; oct</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>进行基于 8 的整型转换。&nbsp;</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>7&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>istr &gt;&gt; <a name="indexterm-655"></a>ws</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>提取空白字符（跳过空白），直至找到非空白字符（留在 <tt>istr</tt> 中）。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>8&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-656"></a>setbase(n),  istr &gt;&gt;<br>setbase(n)</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>将转换基数设置为 <tt>n</tt>（仅限于 0、8、10 和 16）。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>9&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-657"></a>setw(n), istr &gt;&gt; setw(n)</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>调用 <tt>ios::width(n)</tt>。将字段宽度设置为 n。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>10&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-658"></a>resetiosflags(i), istr&gt;&gt;<br>resetiosflags(i)</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>根据 <tt>i</tt> 中设置的位，清除标志位向量。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>11&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-659"></a>setiosflags(i), istr &gt;&gt;<br>setiosflags(i)</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>根据 <tt>i</tt> 中设置的位，设置标志位向量。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>12&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-660"></a>setfill(c), istr &gt;&gt;<br>setfill(c)</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>将填充字符（用于填充字段）设置为 <tt>c</tt>。</p><br><br></td><br></tr>
+
+<tr><br><td align="left" valign="top"><br><p>13&nbsp;</p><br><br></td><td align="left" valign="top"><br><table cellpadding="1" border="1" width="100%"><br><tbody><tr><br><td nowrap="1"><br><br><br><pre>ostr &lt;&lt; <a name="indexterm-661"></a>setprecision(n), istr<br>&gt;&gt;setprecision(n)</pre><br></td><br></tr><br></tbody></table><br><br></td><td align="left" valign="top"><br><p>将浮点精度设置为 <tt>n</tt> 个数字。</p><br><br></td><br></tr>
+
+<p></p></tbody><br></table><p></p>
+
       
     </div>
     
@@ -344,7 +372,7 @@ U2FsdGVkX19me8NHPz86u/UYkmMoVHjwht1mirUIDUMhVGfK1gWfGciXJ3fEhJaz6hlXyPQF532z+Ngd
       
         <div class="post-tags">
           
-            <a href="/tags/encrypt/" rel="tag"># encrypt</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -357,8 +385,8 @@ U2FsdGVkX19me8NHPz86u/UYkmMoVHjwht1mirUIDUMhVGfK1gWfGciXJ3fEhJaz6hlXyPQF532z+Ngd
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/07/What-is-RF-Kill/" rel="next" title="What is RF-Kill ?">
-                <i class="fa fa-chevron-left"></i> What is RF-Kill ?
+              <a href="/2018/08/10/gcc-g-编译细节-不断更新/" rel="next" title="gcc/g++ 编译细节(不断更新)">
+                <i class="fa fa-chevron-left"></i> gcc/g++ 编译细节(不断更新)
               </a>
             
           </div>
@@ -367,8 +395,8 @@ U2FsdGVkX19me8NHPz86u/UYkmMoVHjwht1mirUIDUMhVGfK1gWfGciXJ3fEhJaz6hlXyPQF532z+Ngd
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/22/shutter缺少库文件导致部分功能无法运行/" rel="prev" title="shutter缺少库文件导致部分功能无法实现">
-                shutter缺少库文件导致部分功能无法实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/23/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

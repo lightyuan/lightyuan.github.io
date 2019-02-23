@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Leecode,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="问题描述如果序列&amp;nbsp;X_1, X_2, …, X_n&amp;nbsp;满足下列条件，就说它是&amp;nbsp;斐波那契式&amp;nbsp;的：  n &amp;gt;= 3对于所有&amp;nbsp;i + 2 &amp;lt;= n，都有&amp;nbsp;X_i + X_{i+1} = X_{i+2}  给定一个严格递增的正整数数组形成序列，找到 A 中最长的斐波那契式的子序列的长度。如果一个不存在，返回&amp;nbsp;&amp;nbsp;0 。">
+<meta name="keywords" content="Leecode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode(1): 斐波那契子的长度">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/LeetCode-1-斐波那契子的长度/index.html">
+<meta property="og:site_name" content="此心光明,亦复何言">
+<meta property="og:description" content="问题描述如果序列&amp;nbsp;X_1, X_2, …, X_n&amp;nbsp;满足下列条件，就说它是&amp;nbsp;斐波那契式&amp;nbsp;的：  n &amp;gt;= 3对于所有&amp;nbsp;i + 2 &amp;lt;= n，都有&amp;nbsp;X_i + X_{i+1} = X_{i+2}  给定一个严格递增的正整数数组形成序列，找到 A 中最长的斐波那契式的子序列的长度。如果一个不存在，返回&amp;nbsp;&amp;nbsp;0 。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-10T01:08:36.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode(1): 斐波那契子的长度">
+<meta name="twitter:description" content="问题描述如果序列&amp;nbsp;X_1, X_2, …, X_n&amp;nbsp;满足下列条件，就说它是&amp;nbsp;斐波那契式&amp;nbsp;的：  n &amp;gt;= 3对于所有&amp;nbsp;i + 2 &amp;lt;= n，都有&amp;nbsp;X_i + X_{i+1} = X_{i+2}  给定一个严格递增的正整数数组形成序列，找到 A 中最长的斐波那契式的子序列的长度。如果一个不存在，返回&amp;nbsp;&amp;nbsp;0 。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/08/LeetCode-1-斐波那契子的长度/">
+
+
+
+
+
+  <title>LeetCode(1): 斐波那契子的长度 | 此心光明,亦复何言</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">此心光明,亦复何言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/LeetCode-1-斐波那契子的长度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Light Yuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="此心光明,亦复何言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode(1): 斐波那契子的长度</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T08:08:11+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>如果序列&nbsp;<code>X_1, X_2, …, X_n</code>&nbsp;满足下列条件，就说它是&nbsp;<em>斐波那契式&nbsp;</em>的：</p>
+
+<ul><br><li><code>n &gt;= 3</code></li><br><li>对于所有&nbsp;<code>i + 2 &lt;= n</code>，都有&nbsp;<code>X_i + X_{i+1} = X_{i+2}</code></li><br></ul>
+
+<p>给定一个<strong>严格递增</strong>的正整数数组形成序列，找到 <code>A</code> 中最长的斐波那契式的子序列的长度。如果一个不存在，返回&nbsp;&nbsp;0 。</p>
+
+<p><em>（回想一下，子序列是从原序列 <code>A</code>&nbsp;中派生出来的，它从 <code>A</code>&nbsp;中删掉任意数量的元素（也可以不删），而不改变其余元素的顺序。例如，&nbsp;<code>[3, 5, 8]</code>&nbsp;是&nbsp;<code>[3, 4, 5, 6, 7, 8]</code>&nbsp;的一个子序列）</em></p>
+
+<a id="more"></a>
+<p>&nbsp;</p>
+
+<ul><br></ul>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入: </strong>[1,2,3,4,5,6,7,8]
+<strong>输出: </strong>5
+<strong>解释:
+</strong>最长的斐波那契式子序列为：[1,2,3,5,8] 。
+</pre>
+
+<p><strong>示例&nbsp;2：</strong></p>
+
+<pre><strong>输入: </strong>[1,3,7,11,12,14,18]
+<strong>输出: </strong>3
+<strong>解释</strong>:
+最长的斐波那契式子序列有：
+[1,11,12]，[3,11,14] 以及 [7,11,18] 。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul><br><li><code>3 &lt;= A.length &lt;= 1000</code></li><br><li><code>1 &lt;= A[0] &lt; A[1] &lt; … &lt; A[A.length - 1] &lt;= 10^9</code></li><br><li><em>（对于以 Java，C，C++，以及&nbsp;C# 的提交，时间限制被减少了 50%）</em></li><br></ul>
+
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="一-暴力解决"><a href="#一-暴力解决" class="headerlink" title="一 暴力解决"></a>一 暴力解决</h4><p>这也是我一开始想到的方法, 我先想到了全排列, 然并卵, 我观察发现只需要两次排列(for…for)就行了, 接下来就是迭代(while), 显然算法复杂度上线O &gt; N^2(N=A.length), 代码实现如下:</p>
+<p>缺点: 贼占存储 由于采用hash表来提高搜索速度这些项的值以指数形式增长，最大值 &le; 10^9的斐波那契式的子序列最多有 43 项</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cpp</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">lenLongestFibSubseq</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span></span>&#123;</span><br><span class="line">			<span class="keyword">int</span> N = A.size();</span><br><span class="line">			<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; S(A.begin(A.begin(), A.end()); <span class="comment">// 序列转换成集合 用于查找元素是否存在</span></span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;N; i++)</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;N; j++)&#123;</span><br><span class="line">					<span class="keyword">int</span> x = A[j];</span><br><span class="line">					<span class="keyword">int</span> y = A[i] + A[j];</span><br><span class="line">					<span class="keyword">int</span> length = <span class="number">2</span>;</span><br><span class="line">					<span class="keyword">while</span>(S.find(y) != S.end())&#123;</span><br><span class="line">						<span class="keyword">int</span> z = x + y;</span><br><span class="line">						x = y;</span><br><span class="line">						y = z;</span><br><span class="line">						length++;</span><br><span class="line">						ans = ans &lt; ++length ? length : ans;</span><br><span class="line">					&#125;</span><br><span class="line">					ans = ans &lt; length ? length : ans;</span><br><span class="line">				&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">return</span> ans &gt;= <span class="number">3</span> ? ans : <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">lenLongestFibSubseq</span><span class="params">(self, A)</span>:</span></span><br><span class="line">		S = set(A) // 用与查找元素</span><br><span class="line"></span><br><span class="line">		ans = <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(A)):</span><br><span class="line">			<span class="keyword">for</span> <span class="keyword">in</span> xrange(i+<span class="number">1</span>, len(A)):</span><br><span class="line">				x = A[j]</span><br><span class="line">				y = A[i] + A[j]</span><br><span class="line">				length = <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">while</span> y <span class="keyword">in</span> S:</span><br><span class="line">					x, y = y, x+y</span><br><span class="line">					length += <span class="number">1</span></span><br><span class="line">				ans = max(ans, length)</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">return</span> ans <span class="keyword">if</span> ans &gt;= <span class="number">3</span> <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="二-动态规划"><a href="#二-动态规划" class="headerlink" title="二 动态规划"></a>二 动态规划</h4><p>已经不是第一次接触该方法了, 只懂得其核心:记录已经发生, 防患未然.</p>
+<p>将该问题考虑成点的联通问题: 若 <strong><em>A[i] A[j] A[j]</em></strong> 构成斐波那楔子式, 可表示成两点 <strong><em>(i, j)-&gt;(j, k)</em></strong> 即 <strong><em>(i, j)</em></strong> 表示斐波那楔子式子序列中连续的两个值</p>
+<h5 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h5><p>设 longest[i, j] 是结束在 [i, j] 的最长路径。那么 如果 (i, j) 和 (j, k) 是连通的， longest[j, k] = longest[i, j] + 1。由于 i 由 A.index(A[k] - A[j]) 唯一确定，所以这是有效的：我们在 i 潜在时检查每组 j &lt; k，并相应地更新 longest[j, k]。</p>
+<pre><code class="cpp">
+</code></pre>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Leecode/" rel="tag"># Leecode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/C-1-初识输入输出/" rel="next" title="C++(1): 初识输入输出">
+                <i class="fa fa-chevron-left"></i> C++(1): 初识输入输出
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/08/C-STL-map-和-unsorted-map-存储方式/" rel="prev" title="C++ STL: map 和 unsorted_map 存储方式">
+                C++ STL: map 和 unsorted_map 存储方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Light Yuan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-暴力解决"><span class="nav-number">2.1.</span> <span class="nav-text">一 暴力解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-动态规划"><span class="nav-number">2.2.</span> <span class="nav-text">二 动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法"><span class="nav-number">2.2.1.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Light Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

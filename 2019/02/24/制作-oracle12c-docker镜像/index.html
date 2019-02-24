@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="linux,">
+  <meta name="keywords" content="docker,oracle,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
-<meta name="keywords" content="linux">
+<meta name="description" content="由于学习Java的原因，需要安装oracle数据库…在网上搜了一些解决方案，最终看中了docker+，没办法，简单！！还不用动脑子。">
+<meta name="keywords" content="docker,oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What is RF-Kill ?">
-<meta property="og:url" content="http://yoursite.com/2018/05/07/What-is-RF-Kill/index.html">
+<meta property="og:title" content="制作 oracle12c docker镜像">
+<meta property="og:url" content="http://yoursite.com/2019/02/24/制作-oracle12c-docker镜像/index.html">
 <meta property="og:site_name" content="此心光明,亦复何言">
-<meta property="og:description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
+<meta property="og:description" content="由于学习Java的原因，需要安装oracle数据库…在网上搜了一些解决方案，最终看中了docker+，没办法，简单！！还不用动脑子。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-24T09:23:40.301Z">
+<meta property="og:updated_time" content="2019-02-24T13:51:26.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What is RF-Kill ?">
-<meta name="twitter:description" content="这是我从外国网站上看到的,感觉不错,就翻译过来了. 原网址：Reahat Customer Portal.">
+<meta name="twitter:title" content="制作 oracle12c docker镜像">
+<meta name="twitter:description" content="由于学习Java的原因，需要安装oracle数据库…在网上搜了一些解决方案，最终看中了docker+，没办法，简单！！还不用动脑子。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/07/What-is-RF-Kill/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/24/制作-oracle12c-docker镜像/">
 
 
 
 
 
-  <title>What is RF-Kill ? | 此心光明,亦复何言</title>
+  <title>制作 oracle12c docker镜像 | 此心光明,亦复何言</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/What-is-RF-Kill/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/制作-oracle12c-docker镜像/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Light Yuan">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">What is RF-Kill ?</h1>
+          <h1 class="post-title" itemprop="name headline">制作 oracle12c docker镜像</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T11:29:34+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T17:50:07+08:00">
+                2019-02-24
               </time>
             
 
@@ -310,26 +310,39 @@
       
 
       
-        <p>这是我从外国网站上看到的,感觉不错,就翻译过来了.</p>
-<p>原网址：<a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/power_management_guide/rfkill" target="_blank" rel="noopener">Reahat Customer Portal</a>.</p>
-<a id="more"></a>
-<h2 id="RFKill-介绍"><a href="#RFKill-介绍" class="headerlink" title="RFKill 介绍"></a><em>RFKill</em> 介绍</h2><p>许多电脑都拥有无线发射设备，包括WI-FI, Bluetooth, 和3G设备.当这些设备不是用的时候,依然消耗功率.</p>
-<p><em>RFKill</em>是<em>Linux</em>内核内的一个子系统, 它提供一种接口, 通过该接口计算机系统中的无线发射设备可以被询问, 被激活, 或者被无效. 当发射装置被无效时, 它可以处于被软件再次激活的状态(a soft block), 或者处于无法再次被激活的状态(a hard block).</p>
-<p>RFKill core 为该子系统提供了API. 内核驱动已经设计成支持<em>RFKill</em>使用该API向内核登记, 还包含一些方法如: 启动设备, 关闭设备. 除此以外, RFKill core 还提过用户应用可以理解的通告, 以及一些方法, 通过该方法用户应用可以查询发射装置的状态.</p>
-<p><em>RFKill</em> 接口就是 <em>/dev/rfkill</em>, 它包含系统中所有无线发射装置的当前状态. 每个设备都拥有它的当前<em>RFKill</em>状态, 该状态已注册到<em>sysfs</em>. 而且, <em>RFKill</em> 为每个RFKill-enabled设备的状态改变产生文件.</p>
-<h2 id="命令行工具-rfkill"><a href="#命令行工具-rfkill" class="headerlink" title="命令行工具 rfkill"></a>命令行工具 rfkill</h2><p><strong>rfkill</strong>是一个命令行工具, 通过它你可以查询并改变系统中RFKill-enabled设备.获得该设备需要安装rfkill包.</p>
-<p>获取无线设备表:</p>
-<p><code>$ rfkill listi</code></p>
-<p>限制序号为[number]的设备:</p>
-<p><code>$ rfkill block [number]</code></p>
-<p>限制特定类别的设备, 如 wifi, blootooth等:</p>
-<p><code>$ rfkill block wifi</code></p>
-<p>限制所有设备:</p>
-<p><code>$ rfkill block all</code></p>
-<p>与以上限制相应的有解封 unblock：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rfkill unblock [number]</span><br><span class="line">$ rfkill unblock wifi</span><br><span class="line">$ rfkill unblock all</span><br></pre></td></tr></table></figure>
-<p>毫无类外, rfkill也提供了帮助文档:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ man rfkill</span><br><span class="line">$ rfkill --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+        <p>由于学习Java的原因，需要安装oracle数据库…<br>在网上搜了一些解决方案，最终看中了docker+，没办法，简单！！还不用动脑子。<br><a id="more"></a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>就是这篇文章: <a href="https://www.jianshu.com/p/3dcc43640c3a" target="_blank" rel="noopener">安装 oracle12c-docker</a></p>
+<h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><p>我的开发环境为:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uname -a</span><br><span class="line">Linux light-Inspiron-3559 4.18.0-15-generic <span class="comment">#16~18.04.1-Ubuntu SMP Thu Feb 7 14:06:04 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="所需软件"><a href="#所需软件" class="headerlink" title="所需软件"></a>所需软件</h3><p>需要安装的软件如下:</p>
+<ol>
+<li>Docker</li>
+<li>Git</li>
+<li>oracle12c(12.2.0.1)压缩包(约3G)</li>
+</ol>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
+<li><p>下载oracle开源docker镜像制作脚本库, 生成目录docker-images/<br><code>git clone https://github.com/oracle/docker-images.git</code></p>
+</li>
+<li><p>将已经下载好的压缩包linuxx64_12201_database.zip放入docker-images/OracleDatabase/SingleInstance/dockerfiles/12.2.0.1/目录下。</p>
+</li>
+<li><p>执行脚本进入目录docker-images/OracleDatabase/SingleInstance/dockerfiles/，执行脚本./buildDockerImage.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ ./buildDockerImage.sh -h</span><br><span class="line"></span><br><span class="line">Usage: buildDockerImage.sh -v [version] [-e | -s | -x] [-i] [-o] [Docker build option]</span><br><span class="line">Builds a Docker Image <span class="keyword">for</span> Oracle Database.</span><br><span class="line">  </span><br><span class="line">Parameters:</span><br><span class="line">   -v: version to build <span class="comment">## 压缩包版本号</span></span><br><span class="line">       Choose one of: 11.2.0.2  12.1.0.2  12.2.0.1  18.3.0  18.4.0  </span><br><span class="line">   -e: creates image based on <span class="string">'Enterprise Edition'</span> <span class="comment">## 商业版</span></span><br><span class="line">   -s: creates image based on <span class="string">'Standard Edition 2'</span></span><br><span class="line">   -x: creates image based on <span class="string">'Express Edition'</span></span><br><span class="line">   -i: ignores the MD5 checksums <span class="comment">## 忽视MD5检验和</span></span><br><span class="line">   -o: passes on Docker build option</span><br><span class="line"></span><br><span class="line">* select one edition only: -e, -s, or -x</span><br><span class="line"></span><br><span class="line">LICENSE UPL 1.0</span><br><span class="line"></span><br><span class="line">Copyright (c) 2014-2018 Oracle and/or its affiliates. All rights reserved.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>$ ./buildDockerImage.sh -v 12.2.0.1 -e -i</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE</span><br><span class="line">oracle/database     12.2.0.1-ee         699bb39e21a3        About a minute ago   6.11GB</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>创建容器</li>
+</ol>
+<ul>
+<li><p>设置数据库存储目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir db/docker-oracle-data -p -v</span><br><span class="line">mkdir: created directory <span class="string">'db'</span></span><br><span class="line">mkdir: created directory <span class="string">'db/docker-oracle-data'</span></span><br><span class="line">$</span><br><span class="line">$ chmod 777 -R db/docker-oracle-data -v</span><br><span class="line">mode of <span class="string">'db/docker-oracle-data'</span> changed from 0755 (rwxr-xr-x) to 0777 (rwxrwxrwx)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name oracle12c \</span><br><span class="line">-p 1521:1521 -p 5500:5500 \</span><br><span class="line">-v  ~/db/docker-oracle-data:/opt/oracle/oradata \</span><br><span class="line">oracle/database:12.2.0.1-ee</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改密码<br><code>$ docker exec  oracle12c ./setPassword.sh helloworld</code></p>
+<p>登录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">exec</span> -ti oracle12c /bin/bash -c <span class="string">"sqlplus system/helloworld@localhost:1521/orclcdb"</span></span><br><span class="line"></span><br><span class="line">SQL*Plus: Release 12.2.0.1.0 Production on Sun Feb 24 12:58:31 2019</span><br><span class="line"></span><br><span class="line">Copyright (c) 1982, 2016, Oracle.  All rights reserved.</span><br><span class="line"></span><br><span class="line">Last Successful login time: Sun Feb 24 2019 12:47:10 +00:00</span><br><span class="line"></span><br><span class="line">Connected to:</span><br><span class="line">Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production</span><br><span class="line"></span><br><span class="line">SQL&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -347,7 +360,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/oracle/" rel="tag"># oracle</a>
           
         </div>
       
@@ -360,14 +375,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/02/24/CSDN-MD格式/" rel="next" title="CSDN_MD格式">
+                <i class="fa fa-chevron-left"></i> CSDN_MD格式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/07/Encrypt/" rel="prev" title="Encrypt">
-                Encrypt <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/24/gnome美化杂技-持续更新/" rel="prev" title="Ubuntu18.4.0.1 Gnome美化杂技(持续更新)">
+                Ubuntu18.4.0.1 Gnome美化杂技(持续更新) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RFKill-介绍"><span class="nav-number">1.</span> <span class="nav-text">RFKill 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行工具-rfkill"><span class="nav-number">2.</span> <span class="nav-text">命令行工具 rfkill</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装环境"><span class="nav-number">2.</span> <span class="nav-text">安装环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所需软件"><span class="nav-number">3.</span> <span class="nav-text">所需软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程"><span class="nav-number">4.</span> <span class="nav-text">安装过程</span></a></li></ol></div>
             
 
           </div>

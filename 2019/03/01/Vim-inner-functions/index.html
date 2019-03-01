@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,">
+  <meta name="keywords" content="vim,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="编辑base.styl文件">
-<meta name="keywords" content="hexo">
+<meta name="description" content="又换了个系统，突然发现Vim又要重新配置了，惨在此记录下常用的一些内置函数">
+<meta name="keywords" content="vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改hexo字体大小">
-<meta property="og:url" content="http://yoursite.com/2018/06/22/修改hexo字体大小/index.html">
+<meta property="og:title" content="Vim inner functions">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/Vim-inner-functions/index.html">
 <meta property="og:site_name" content="此心光明,亦复何言">
-<meta property="og:description" content="编辑base.styl文件">
+<meta property="og:description" content="又换了个系统，突然发现Vim又要重新配置了，惨在此记录下常用的一些内置函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T15:29:43.725Z">
+<meta property="og:updated_time" content="2019-03-01T10:49:07.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改hexo字体大小">
-<meta name="twitter:description" content="编辑base.styl文件">
+<meta name="twitter:title" content="Vim inner functions">
+<meta name="twitter:description" content="又换了个系统，突然发现Vim又要重新配置了，惨在此记录下常用的一些内置函数">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/22/修改hexo字体大小/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/Vim-inner-functions/">
 
 
 
 
 
-  <title>修改hexo字体大小 | 此心光明,亦复何言</title>
+  <title>Vim inner functions | 此心光明,亦复何言</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/修改hexo字体大小/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/Vim-inner-functions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Light Yuan">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">修改hexo字体大小</h1>
+          <h1 class="post-title" itemprop="name headline">Vim inner functions</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T23:24:28+08:00">
-                2018-06-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T18:18:16+08:00">
+                2019-03-01
               </time>
             
 
@@ -310,11 +310,17 @@
       
 
       
-        <p>编辑base.styl文件</p>
-<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim themes/next/<span class="built_in">source</span>/css/_variables/base.styl</span><br></pre></td></tr></table></figure>
-<p>搜索关键字 font-size-base</p>
-<p>修改相关值为 20 px</p>
+        <p>又换了个系统，突然发现Vim又要重新配置了，惨<br>在此记录下常用的一些内置函数<br><a id="more"></a></p>
+<h2 id="常用内置函数"><a href="#常用内置函数" class="headerlink" title="常用内置函数"></a>常用内置函数</h2><h3 id="substitute-替换子字符串函数"><a href="#substitute-替换子字符串函数" class="headerlink" title="substitute 替换子字符串函数"></a>substitute 替换子字符串函数</h3><p>substitute({expr}, {pat}, {sub}, {flags})<br>和s命令一样,只不过这里要处理的是字符串{expr}, 其中{flags}可以是<code>g</code>(替换全部), 在 <code>:e_flags</code> 查阅详细用途<br>返回字符串</p>
+<h3 id="tr-替换字符函数"><a href="#tr-替换字符函数" class="headerlink" title="tr 替换字符函数"></a>tr 替换字符函数</h3><p>tr({src}, {fromstr}, {tostr})<br>具体用法如下<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Example<span class="variable">s:</span> &gt;</span><br><span class="line">	<span class="keyword">echo</span> <span class="keyword">tr</span>(<span class="string">"hello there"</span>, <span class="string">"ht"</span>, <span class="string">"HT"</span>)</span><br><span class="line">		returns <span class="string">"Hello THere"</span> </span><br><span class="line">	<span class="keyword">echo</span> <span class="keyword">tr</span>(<span class="string">"&lt;blob&gt;"</span>, <span class="string">"&lt;&gt;"</span>, <span class="string">"&#123;&#125;"</span>)</span><br><span class="line">		returns <span class="string">"&#123;blob&#125;"</span></span><br></pre></td></tr></table></figure></p>
+<p>返回字符串</p>
+<h3 id="getline-获取指定行内容"><a href="#getline-获取指定行内容" class="headerlink" title="getline 获取指定行内容"></a>getline 获取指定行内容</h3><p>getline({lnum} [, {end}])<br>有两种调用方法</p>
+<ol>
+<li>获取某一行的内容  getline({lnum}), 返回<code>string</code></li>
+<li>获取连续多行的内容 getline({lnum}, [, {end}]), 返回<code>List</code></li>
+</ol>
+<h3 id="expand-获取文件名"><a href="#expand-获取文件名" class="headerlink" title="expand 获取文件名"></a>expand 获取文件名</h3><p>expand({expr} [, {nosuf} [, {list}]])<br><code>{expr}</code>可为 <code>%</code>:<br>            <code>%        current file name</code><br>可以搭配修饰符:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Modifier<span class="variable">s:</span></span><br><span class="line">	:<span class="keyword">p</span>		<span class="built_in">expand</span> <span class="keyword">to</span> full path</span><br><span class="line">	:h		head (<span class="keyword">last</span> path component removed)</span><br><span class="line">	:t		tail (<span class="keyword">last</span> path component <span class="keyword">only</span>)</span><br><span class="line">	:r		root (one extension removed)</span><br><span class="line">	:<span class="keyword">e</span>		extension <span class="keyword">only</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Example: </span><br><span class="line">	:<span class="keyword">let</span> &amp;<span class="keyword">tags</span> = <span class="built_in">expand</span>(<span class="string">"%:p:h"</span>) . <span class="string">"/tags"</span></span><br><span class="line">Note that when expanding <span class="keyword">a</span> <span class="built_in">string</span> that starts with <span class="string">'%'</span>, <span class="string">'#'</span> <span class="built_in">or</span></span><br><span class="line"><span class="string">'&lt;'</span>, any following text <span class="keyword">is</span> ignored.  This does NOT work: </span><br><span class="line">	:<span class="keyword">let</span> doesntwork = <span class="built_in">expand</span>(<span class="string">"%:h.bak"</span>)</span><br><span class="line">Use thi<span class="variable">s:</span> </span><br><span class="line">	:<span class="keyword">let</span> doeswork = <span class="built_in">expand</span>(<span class="string">"%:h"</span>) . <span class="string">".bak"</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -332,7 +338,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/vim/" rel="tag"># vim</a>
           
         </div>
       
@@ -345,8 +351,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/22/hexo添加首行缩进功能/" rel="next" title="hexo添加首行缩进功能">
-                <i class="fa fa-chevron-left"></i> hexo添加首行缩进功能
+              <a href="/2019/02/24/gnome美化杂技-持续更新/" rel="next" title="Ubuntu18.4.0.1 Gnome美化杂技(持续更新)">
+                <i class="fa fa-chevron-left"></i> Ubuntu18.4.0.1 Gnome美化杂技(持续更新)
               </a>
             
           </div>
@@ -354,10 +360,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/23/xx配置/" rel="prev" title="配置文件">
-                配置文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,8 +411,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -461,6 +472,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用内置函数"><span class="nav-number">1.</span> <span class="nav-text">常用内置函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#substitute-替换子字符串函数"><span class="nav-number">1.1.</span> <span class="nav-text">substitute 替换子字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tr-替换字符函数"><span class="nav-number">1.2.</span> <span class="nav-text">tr 替换字符函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getline-获取指定行内容"><span class="nav-number">1.3.</span> <span class="nav-text">getline 获取指定行内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#expand-获取文件名"><span class="nav-number">1.4.</span> <span class="nav-text">expand 获取文件名</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

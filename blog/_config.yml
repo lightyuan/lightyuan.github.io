@@ -104,4 +104,4 @@ theme: next
 deploy:
   type: 'git'
   repository: 'https://github.com/lightyuan/lightyuan.github.io'
-  branch: master
+  branch: 'master'
